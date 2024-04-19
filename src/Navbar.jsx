@@ -4,9 +4,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 function Navbar() {
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Sam Is It Spam?</a>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="#">Sam Is It Spam?</a>
+                    <ul className='navbar-nav'>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">Image</a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">Text</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
