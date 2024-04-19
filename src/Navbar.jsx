@@ -1,16 +1,17 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Navbar() {
     return (
-        <nav className='navbar'>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Sam Is It Spam?</a>
+                </div>
+            </nav>
+        </div>
     );
 }
- 
+
+
 export default Navbar;
