@@ -13,7 +13,6 @@ function DisclaimerText() {
                     </p>
                 </div>
             </div>
-            
         </div>
     );
 }
