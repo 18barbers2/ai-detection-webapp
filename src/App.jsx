@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import DisclaimerText from './DisclaimerText';
 import InputBox from './InputBox';
 import OutputBox from './OutputBox';
+import Button from './Button';
 
 
 function App() {
@@ -18,9 +19,7 @@ function App() {
         </div>
         <div className="col">
           <div className="row">
-            <div className="col">
-              
-            </div>
+              <Button className="detect-button">Run</Button>
           </div>
         </div>
         <div className="col">
