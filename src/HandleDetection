@@ -1,0 +1,11 @@
+class HandleDetection {
+    constructor(component) {
+        this.component = component;
+    }
+
+    handleDetection = () => {
+        console.log('Run Derection', this.component.state);
+    }
+}
+
+export default HandleDetection;

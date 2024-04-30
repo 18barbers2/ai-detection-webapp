@@ -5,6 +5,7 @@ import DisclaimerText from './DisclaimerText';
 import InputBox from './InputBox';
 import OutputBox from './OutputBox';
 import Button from './Button';
+import HandleDetection from './HandleDetection';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         </div>
         <div className="col">
           <div className="row">
-              <Button className="detect-button">Run</Button>
+              <Button onClick={HandleDetection} className="detect-button">Run</Button>
           </div>
         </div>
         <div className="col">
