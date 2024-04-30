@@ -10,9 +10,11 @@
   background-color: rgb(158, 158, 158);
   width: 500px;
   height: 500px;
+  border-radius: 20px;
 }
 .output-box {
   background-color: rgb(153, 131, 131);
   width: 500px;
   height: 500px;
+  border-radius: 20px;
 }
