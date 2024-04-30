@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from './Navbar';
 import DisclaimerText from './DisclaimerText';
 import InputBox from './InputBox';
+import OutputBox from './OutputBox';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Navbar></Navbar>
       <DisclaimerText></DisclaimerText>
       <InputBox></InputBox>
+      <OutputBox></OutputBox>
     </>
   )
 }
