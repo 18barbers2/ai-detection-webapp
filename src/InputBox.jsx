@@ -1,7 +1,9 @@
 function InputBox() {
     return(
-        <div className="input-box container" style={"background-color: gray;"}>
-            
+        <div>
+            <div className="input-box container">
+                
+            </div>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from './Navbar';
 import DisclaimerText from './DisclaimerText';
+import InputBox from './InputBox';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <DisclaimerText></DisclaimerText>
+      <InputBox></InputBox>
     </>
   )
 }
