@@ -12,8 +12,14 @@ function App() {
     <>
       <Navbar></Navbar>
       <DisclaimerText></DisclaimerText>
-      <InputBox></InputBox>
-      <OutputBox></OutputBox>
+      <div className="row">
+        <div className="col">
+          <InputBox></InputBox>
+        </div>
+        <div className="col">
+          <OutputBox></OutputBox>
+        </div>
+      </div>
     </>
   )
 }
