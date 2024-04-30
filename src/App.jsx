@@ -17,6 +17,13 @@ function App() {
           <InputBox></InputBox>
         </div>
         <div className="col">
+          <div className="row">
+            <div className="col">
+              
+            </div>
+          </div>
+        </div>
+        <div className="col">
           <OutputBox></OutputBox>
         </div>
       </div>
