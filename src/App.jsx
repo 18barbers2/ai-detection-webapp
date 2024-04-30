@@ -18,9 +18,12 @@ function App() {
         <div className="col">
           <InputBox></InputBox>
         </div>
-        <div className="col">
+        <div className="col-md-1">
           <div className="row">
               <Button onClick={HandleDetection} className="detect-button">Run</Button>
+          </div>
+          <div className="row">
+              <Button onClick={HandleDetection} className="stop-button">Stop</Button>
           </div>
         </div>
         <div className="col">
