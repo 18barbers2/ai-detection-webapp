@@ -17,6 +17,11 @@ app.get('/hello/:name', (req, res) => {
     res.send(`hello, world. Or should I say ... ${name}`);
 });
 
+app.get('/hello', (req, res) => {
+    const name = req.query.name || 'world';
+    res.send(`hello, world. Or should I say ... ${name}`);
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`)
 });
