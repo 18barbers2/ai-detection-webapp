@@ -10,7 +10,6 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/run-script/:input', (req, res) => {
-    // const input = req.body.input;
     const input = req.params.input;
 
     const pythonProcess = spawn('python', ['test_script.py', input]);
