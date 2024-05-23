@@ -20,7 +20,7 @@ function App() {
         </div>
         <div className="col-md-1">
           <div className="row">
-              <Button onClick={HandleDetection} className="detect-button">Run</Button>
+              <Button onClick={HandleDetection} className="start-button">Run</Button>
           </div>
           <div className="row">
               <Button onClick={HandleDetection} className="stop-button">Stop</Button>
