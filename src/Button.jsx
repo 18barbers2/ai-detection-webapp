@@ -1,6 +1,11 @@
-function Button({onClick, children, className}) {
+function Button({handleClick, children, className}) {
+
+    function handleClick() {
+        alert('You clicked me');
+    }
+
     return(
-        <button onClick={onClick} className={`button ${className}`}>
+        <button onClick={handleClick} className={`button ${className}`}>
             {children}
         </button>
     );
