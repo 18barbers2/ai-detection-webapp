@@ -1,7 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const { spawn } = require('child_process');
 const app = express();
 const port = 5000;
+
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(express.json());
 
