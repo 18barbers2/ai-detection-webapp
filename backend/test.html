@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Request Example</title>
+</head>
+<body>
+    <h1>POST Request Example</h1>
+    <form id="postForm">
+        <label for="inputText">Enter text:</label>
+        <input type="text" id="inputText" name="inputText" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="response"></p>
+
+    <script>
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const inputText = document.getElementById('inputText').value;
+
+            fetch(`http://localhost:5000/run-script/${inputText}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').textContent = `Response: ${data.output}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('response').textContent = `Error: ${error}`;
+            });
+        });
+    </script>
+</body>
+</html>
