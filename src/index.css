@@ -39,3 +39,15 @@
   transition-timing-function: ease-in;
   transition: 0.25s;
 }
+
+.button {
+  margin: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+.run-button{
+  background-color: rgb(63, 153, 45);
+  border-color: rgb(53, 143, 35);
+}
