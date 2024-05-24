@@ -28,6 +28,8 @@ def format_data():
     # combine these rows
     result = pd.concat([human_data, ai_data], axis=0)
 
+    result.to_csv('../data/processed_data.csv', index=False)
+
     print(result.shape)
     
 
