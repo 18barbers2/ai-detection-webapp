@@ -17,18 +17,18 @@ def format_data():
 
     # generated text column
     ai_data = pd.DataFrame(data['generated_text'])
-    ai_data.rename(columns = { 'generated_text' : 'text' })
+    ai_data.rename(columns = { 'generated_text' : 'text' }, inplace=True)
     ai_data['human'] = 0
 
     # human text column
     human_data = pd.DataFrame(data['wiki_intro'])
-    human_data.rename(columns = { 'wiki_intro' : 'text' })
+    human_data.rename(columns = { 'wiki_intro' : 'text' }, inplace=True)
     human_data['human'] = 1
 
     # combine these rows
-    result = pd.concat([human_data, ai_data], axis=1)
+    result = pd.concat([human_data, ai_data], axis=0)
 
-    print(result.head())
+    print(result.shape)
     
 
 
