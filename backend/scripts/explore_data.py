@@ -30,7 +30,7 @@ def format_data():
 
     result.to_csv('../data/processed_data.csv', index=False)
 
-    print(result.shape)
+    print('Processed data: ' + result.shape)
     
 
 
