@@ -10,31 +10,49 @@ data = pd.read_csv('../data/processed_data.csv')
 # nltk.download('stopwords')
 # nltk.download('wordnet')
 
-def stopword_removal():
+def tokenize(text):
+    return nltk.word_tokenize(text)
+
+def stopword_removal(tokens):
     stop_words = set(stopwords.words('english'))
-    words = ["This", "is", "a", "sample", "sentence"]
-    filtered_words = [word for word in words if word.lower() not in stop_words]
+    filtered_words = [token for token in tokens if token.lower() not in stop_words and token]
     return filtered_words
 
 
-def lemmatization():
-    return
+def lemmatization(tokens):
+    lemmatizer = WordNetLemmatizer()
+    lemmatized_tokens = [lemmatizer.lemmatize(token) for token in tokens if token]
+    return lemmatized_tokens
 
 
-def strip_characters(text):
-    clean = re.sub(r'[^a-zA-Z0-9\s]', '', text)
-    clean = re.sub(r'\s+', ' ', clean).strip()
-    return clean
+def strip_characters(tokens):
+    clean_tokens = [re.sub(r'[^a-zA-Z0-9\s]', '', token) for token in tokens]
+    clean_tokens = [re.sub(r'\s+', ' ', token).strip() for token in clean_tokens if token]
+    return clean_tokens
 
-def stemming():
-    return
+def stemming(tokens):
+    stemmer = PorterStemmer()
+    stemmed_tokens = [stemmer.stem(token) for token in tokens if token]
+    return stemmed_tokens
+
+def process_data(text):
+    return text
 
 
 if (__name__ == '__main__'):
     # print(stopword_removal())
     index = random.randint(1, data['text'].size)
-
-    print(strip_characters(data['text'][index]))
-    print('\n\n')
-    print(data['text'][index])
+    
+    test = "Hello!!! This is a sample sentence... with punctuation, numbers (1234), and special characters: @#&*()"
+    
+    test = tokenize(test)
+    print(test)
+    test = strip_characters(test)
+    print(test)
+    test = stopword_removal(test)
+    print(test)
+    test = lemmatization(test)
+    print(test)
+    test = stemming(test)
+    print(test)
     
