@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 import re
 import random
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 data = pd.read_csv('../data/processed_data.csv')
 
@@ -38,21 +39,35 @@ def stemming(tokens):
 def process_data(text):
     return text
 
+def vectorize_data(df):
+    vectorizer = TfidfVectorizer(max_features = 5000)
+
+    X = vectorizer.fit_transform(df['text'])
+    y = df['human']
+
+    return_tuple = (X, y)
+
+
 
 if (__name__ == '__main__'):
     # print(stopword_removal())
     index = random.randint(1, data['text'].size)
     
-    test = "Hello!!! This is a sample sentence... with punctuation, numbers (1234), and special characters: @#&*()"
-    
-    test = tokenize(test)
-    print(test)
-    test = strip_characters(test)
-    print(test)
-    test = stopword_removal(test)
-    print(test)
-    test = lemmatization(test)
-    print(test)
-    test = stemming(test)
-    print(test)
+    sample_df = data.sample(20)
+    print(sample_df)
+
+    print(vectorize_data(sample_df))
+
+    # test = tokenize(test)
+    # print(test)
+    # test = strip_characters(test)
+    # print(test)
+    # test = stopword_removal(test)
+    # print(test)
+    # test = lemmatization(test)
+    # print(test)
+    # test = stemming(test)
+    # print(test)
+
+
     
