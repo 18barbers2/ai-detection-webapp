@@ -7,7 +7,7 @@ import random
 from sklearn.feature_extraction.text import TfidfVectorizer
 import xgboost as xgb
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 import pickle
 
@@ -54,7 +54,7 @@ def vectorize_data_and_train_xgboost(df):
 
     dtrain = xgb.DMatrix(data = X, label = y)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=24)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     dtrain = xgb.DMatrix(data = X_train, label = y_train)
     dtest = xgb.DMatrix(data = X_test, label = y_test)
@@ -66,7 +66,29 @@ def vectorize_data_and_train_xgboost(df):
         'n_estimators': 100
     }
 
-    bst = xgb.train(params, dtrain, num_boost_round=10)
+    # param_grid = {
+    #     'max_depth': [3, 5, 7],
+    #     'learning_rate': [0.01, 0.1, 0.3],
+    #     'n_estimators': [50, 100, 200],
+    #     'subsample': [0.8, 1.0],
+    #     'colsample_bytree': [0.8, 1.0],
+    # }
+
+    param_grid = {
+        'max_depth': [3, 5, 7],
+        'learning_rate': [0.01, 0.1, 0.3],
+        'n_estimators': [50, 100]
+    }
+
+    
+
+    xgb_model = xgb.XGBClassifier(objective='binary:logistic')
+    grid_search = GridSearchCV(estimator=xgb_model, param_grid=param_grid, scoring='accuracy', cv=2, n_jobs=-1)
+    grid_search.fit(X_train, y_train)
+
+    print("Best parameters found: ", grid_search.best_params_)
+
+    bst = xgb.train(grid_search.best_params_, dtrain, num_boost_round=10)
 
     preds = bst.predict(dtest)
     predictions = [1 if x > 0.5 else 0 for x in preds]
@@ -76,13 +98,20 @@ def vectorize_data_and_train_xgboost(df):
     print("Classification Report:")
     print(classification_report(y_test, predictions))
 
+    # Save the model
+    bst.save_model("xgboost_model.json")
+    
+    # Save the vectorizer
+    with open('tfidf_vectorizer.pkl', 'wb') as f:
+        pickle.dump(vectorizer, f)
+
 
 
 if (__name__ == '__main__'):
     # print(stopword_removal())
     index = random.randint(1, data['text'].size)
     
-    sample_df = data.sample(20000)
+    sample_df = data.sample(10000)
     print(sample_df)
 
     vectorize_data_and_train_xgboost(sample_df)
