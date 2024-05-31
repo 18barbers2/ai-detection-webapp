@@ -5,6 +5,11 @@ from nltk.stem import WordNetLemmatizer, PorterStemmer
 import re
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
+import xgboost as xgb
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+import pickle
 
 data = pd.read_csv('../data/processed_data.csv')
 
@@ -39,13 +44,37 @@ def stemming(tokens):
 def process_data(text):
     return text
 
-def vectorize_data(df):
-    vectorizer = TfidfVectorizer(max_features = 5000)
+def vectorize_data_and_train_xgboost(df):
+    vectorizer = TfidfVectorizer()
+    # vectorizer = TfidfVectorizer(max_features = 50000)
+
 
     X = vectorizer.fit_transform(df['text'])
     y = df['human']
 
-    return_tuple = (X, y)
+    dtrain = xgb.DMatrix(data = X, label = y)
+
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=24)
+
+    dtrain = xgb.DMatrix(data = X_train, label = y_train)
+    dtest = xgb.DMatrix(data = X_test, label = y_test)
+
+    params = {
+        'objective': 'binary:logistic',  # for binary classification
+        'max_depth': 3,
+        'learning_rate': 0.1,
+        'n_estimators': 100
+    }
+
+    bst = xgb.train(params, dtrain, num_boost_round=10)
+
+    preds = bst.predict(dtest)
+    predictions = [1 if x > 0.5 else 0 for x in preds]
+
+    # Evaluate
+    print("Accuracy:", accuracy_score(y_test, predictions))
+    print("Classification Report:")
+    print(classification_report(y_test, predictions))
 
 
 
@@ -53,10 +82,12 @@ if (__name__ == '__main__'):
     # print(stopword_removal())
     index = random.randint(1, data['text'].size)
     
-    sample_df = data.sample(20)
+    sample_df = data.sample(20000)
     print(sample_df)
 
-    print(vectorize_data(sample_df))
+    vectorize_data_and_train_xgboost(sample_df)
+
+
 
     # test = tokenize(test)
     # print(test)
