@@ -28,13 +28,13 @@
   transition: 0.25s;
 }
 
-.output-box:hover{
+.output-box:hover {
   box-shadow: inset 5px 5px 5px 2px rgb(177, 177, 177);
   transition-timing-function: ease-in;
   transition: 0.25s;
 }
 
-.input-box:hover{
+.input-box:hover {
   box-shadow: inset 5px 5px 5px 2px rgb(177, 177, 177);
   transition-timing-function: ease-in;
   transition: 0.25s;
@@ -42,12 +42,30 @@
 
 .button {
   margin: 1rem;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   width: 200px;
   height: 100px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.run-button{
-  background-color: rgb(63, 153, 45);
-  border-color: rgb(53, 143, 35);
+.run-button {
+  background-color: #f9f9f9;
+  /* border-color: rgb(53, 143, 35); */
+  /* background-color: rgb(226, 226, 226); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-family: "Roboto" "Futura" "Helvetica";
+  font-weight: bold;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+.run-button:hover {
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1), 
+  -10px -10px 10px white;
+  transition: 0.15s;
 }
