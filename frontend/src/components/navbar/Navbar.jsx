@@ -27,13 +27,13 @@ function Navbar() {
                     explore
                 </span>
                 <div className="NavBarLink">Trade</div>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined tradeIcon">
                     communities
                 </span>
                 <div className="NavBarLink">Community</div>
             </div>
             <div className="NavBarRight">
-                <img className="Profile" src='./src/assets/person/1.jpg'></img>
+                <img className="Profile profileIcon" src='./src/assets/person/1.jpg'></img>
             </div>
         </div>
     );
