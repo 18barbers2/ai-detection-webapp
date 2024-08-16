@@ -23,7 +23,7 @@ function Navbar() {
                     join
                 </span>
                 <div className="NavBarLink">Create</div>
-                <span class="material-symbols-outlined exploreIcon">
+                <span class="material-symbols-outlined createIcon">
                     explore
                 </span>
                 <div className="NavBarLink">Trade</div>

@@ -31,6 +31,36 @@
     cursor: pointer;
 }
 
+.searchIcon {
+    font-size: 20px !important;
+    margin-left: 10px;;
+}
+
+.SearchInput {
+    border: none;
+    width: 70%;
+}
+
+.SearchInput:focus {
+    outline: none;
+}
+
+.homeIcon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+.createIcon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+.joinIcon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+
 .Profile {
     width: 40px;
     height: 40px;
