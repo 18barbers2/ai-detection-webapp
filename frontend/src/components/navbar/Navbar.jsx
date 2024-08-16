@@ -8,20 +8,22 @@ function Navbar() {
                 <span className="logo">Frogsocial</span>
             </div>
             <div className="NavBarMiddle">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-                <input placeholder="Search for frogs" />
                 
-                <span class="material-symbols-outlined">
+                <div className="SearchBar" placeholder="Search for frogs">
+                    <span class="material-symbols-outlined searchIcon">
+                        search
+                    </span>
+                    <input className="SearchInput" placeholder="Search for frogs" />
+                </div>
+                <span class="material-symbols-outlined homeIcon">
                     home
                 </span>
                 <div className="NavBarLink">Home</div>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined joinIcon">
                     join
                 </span>
                 <div className="NavBarLink">Create</div>
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined exploreIcon">
                     explore
                 </span>
                 <div className="NavBarLink">Trade</div>
