@@ -1,4 +1,4 @@
-.NavBarContainer {
+.navbar-container {
     height: 50px;
     width: 100%;
     background-color: rgba(62, 62, 62);
@@ -8,16 +8,16 @@
     top: 0;
 }
 
-.NavBarLeft {
+.navbar-left {
     flex: 3;
 }
 
-.NavBarMiddle {
+.navbar-middle {
     flex: 5;
     display: flex;
 }
 
-.NavBarRight {
+.navbar-right {
     flex: 4;
 }
 
@@ -31,42 +31,51 @@
     cursor: pointer;
 }
 
-.searchIcon {
+.search-icon {
     font-size: 20px !important;
-    margin-left: 10px;;
+    margin-left: 10px;
+    ;
 }
 
-.SearchInput {
+.search-input {
     border: none;
     width: 70%;
 }
 
-.SearchInput:focus {
+.search-input:focus {
     outline: none;
 }
 
-.homeIcon {
-    margin-left: 10px;
-    font-size: 25px;
-    color: white;
-}
-.createIcon {
-    margin-left: 10px;
-    font-size: 25px;
-    color: white;
-}
-.joinIcon {
+.home-icon {
     margin-left: 10px;
     font-size: 25px;
     color: white;
 }
 
-.Profile {
+.create-icon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.join-icon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.trade-icon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.profile {
     width: 40px;
     height: 40px;
 }
 
-.SearchBar {
+.search-bar {
     width: 100%;
     height: 30px;
     background-color: white;
@@ -74,3 +83,8 @@
     display: flex;
     align-items: center;
 }
+
+.navbar-link {
+    color: white;
+}
+

@@ -3,37 +3,36 @@ import './navbar.css'
 
 function Navbar() {
     return (
-        <div className="NavBarContainer">
-            <div className="NavBarLeft">
+        <div className="navbar-container">
+            <div className="navbar-left">
                 <span className="logo">Frogsocial</span>
             </div>
-            <div className="NavBarMiddle">
-                
-                <div className="SearchBar" placeholder="Search for frogs">
-                    <span class="material-symbols-outlined searchIcon">
+            <div className="navbar-middle">
+                <div className="search-bar">
+                    <span class="material-symbols-outlined search-icon">
                         search
                     </span>
-                    <input className="SearchInput" placeholder="Search for frogs" />
+                    <input className="search-input" placeholder="Search for frogs" />
                 </div>
-                <span class="material-symbols-outlined homeIcon">
+                <span class="material-symbols-outlined home-icon">
                     home
                 </span>
-                <div className="NavBarLink">Home</div>
-                <span class="material-symbols-outlined joinIcon">
+                <div className="navbar-link">Home</div>
+                <span class="material-symbols-outlined join-icon">
                     join
                 </span>
-                <div className="NavBarLink">Create</div>
-                <span class="material-symbols-outlined createIcon">
+                <div className="navbar-link">Create</div>
+                <span class="material-symbols-outlined create-icon">
                     explore
                 </span>
-                <div className="NavBarLink">Trade</div>
-                <span class="material-symbols-outlined tradeIcon">
+                <div className="navbar-link">Trade</div>
+                <span class="material-symbols-outlined trade-icon">
                     communities
                 </span>
-                <div className="NavBarLink">Community</div>
+                <div className="navbar-link">Community</div>
             </div>
-            <div className="NavBarRight">
-                <img className="Profile profileIcon" src='./src/assets/person/1.jpg'></img>
+            <div className="navbar-right">
+                <img className="profile profile-icon" src='./src/assets/person/1.jpg'></img>
             </div>
         </div>
     );
